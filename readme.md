@@ -31,23 +31,9 @@ Runing the following command to train and evaluate the model:
 python train.sh
 ```
 
-| Parameter | Function | Options |
-| --- | --- | --- |
-| trainer | Specify the federated learning algorithm | FedAvg, FedAvgOurs |
-| model | Encoder model used in training | simple-cnn (for cifar10) and gnresnet18 (for others) |
-| out_dim | the output dimension for the projection layer | default: 256 |
-| dataset | dataset used for training | cifar10, tinyimagenet, isic, and dermnet |
-| partition | the data partitioning strategy | iid, noniid-#label2, noniid-#label4, noniid-#label20, and so on (see "utils/utils.py" for more details) |
-| n_parties | number of clients | (arbitrarily positive integer) |
-| rounds | number of maximum communication rounds | default: 50 |
-| batch-size | input batch size for training | default: 64 |
-| lr | learning rate | default: 0.005 |
-| weight_decay | L2 regularizaiton strength | default: 1e-5 |
-| epochs | number of local epochs | default: 10 |
-| output_dir | output directory path | default: ../output |
-
 ## Results
 We have constructed several models:
+
 | Models | CT(BS) | CT(1F) | CT(2F) | Tumor markers | RECIST | Clinical info. | Descriptions |
 |---|---|---|---|---|---|---|---|
 | RECIST v1.1 | ✓ | ✓ | ✓ | | | | Based on RECIST v1.1，treatment response is defined as PR, SD and PD |
@@ -60,6 +46,7 @@ We have constructed several models:
 | Nomo-all | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | Nomogram integrated by LDLM, TDLM, RECIST, and clinical information |
 
 Performance comparisions of differnet models on the training cohort (n=91):
+
 | Models | C-index (95% CI) | HR (95% CI) | HR (P value) | AUC (95% CI) |
 |---|---|---|---|---|
 | RECIST v1.1 | 0.648 (0.577-0.719) | 1.858 (1.363-2.534) | <0.0001 | 0.753 (0.636-0.869) |
@@ -72,6 +59,7 @@ Performance comparisions of differnet models on the training cohort (n=91):
 | Nomo-all | 0.807 (0.748-0.866) | 115.751 (34.611-387.108) | <0.0001 | 0.891 (0.808-0.975) |
 
 Performance comparisions of differnet models on the internal validation cohort (n=46):
+
 | Models | C-index (95% CI) | HR (95% CI) | HR (P value) | AUC (95% CI) |
 |---|---|---|---|---|
 | RECIST v1.1 | 0.652 (0.525-0.780) | 1.583 (1.100-2.277) | 0.0133 | 0.759 (0.580-0.938) |
@@ -84,6 +72,7 @@ Performance comparisions of differnet models on the internal validation cohort (
 | Nomo-all | 0.752 (0.634-0.870) | 23.911 (5.229-109.337) | <0.0001 | 0.894 (0.768-1.019) |
 
 Performance comparisions of differnet models on the external validation cohort (n=37):
+
 | Models | C-index (95% CI) | HR (95% CI) | HR (P value) | AUC (95% CI) |
 |---|---|---|---|---|
 | RECIST v1.1 | 0.627 (0.510-0.745) | 2.125 (1.147-3.937) | 0.0166 | 0.653 (0.422-0.883) |
@@ -94,6 +83,7 @@ Performance comparisions of differnet models on the external validation cohort (
 | Nomo-wot | 0.709 (0.562-0.855) | 13.837 (1.846-103.746) | 0.0106 | 0.771 (0.510-1.031) |
 
 Performance comparisions of differnet models on the prospective cohort (n=33):
+
 | Models | C-index (95% CI) | HR (95% CI) | HR (P value) | AUC (95% CI) |
 |---|---|---|---|---|
 | RECIST v1.1 | 0.644 (0.501-0.786) | 1.343 (0.880-2.048) | 0.1710 | 0.770 (0.579-0.961) |

@@ -31,6 +31,21 @@ Runing the following command to train and evaluate the model:
 python train.sh
 ```
 
+| Parameter | Function | Options |
+| --- | --- | --- |
+| trainer | Specify the federated learning algorithm | FedAvg, FedAvgOurs |
+| model | Encoder model used in training | simple-cnn (for cifar10) and gnresnet18 (for others) |
+| out_dim | the output dimension for the projection layer | default: 256 |
+| dataset | dataset used for training | cifar10, tinyimagenet, isic, and dermnet |
+| partition | the data partitioning strategy | iid, noniid-#label2, noniid-#label4, noniid-#label20, and so on (see "utils/utils.py" for more details) |
+| n_parties | number of clients | (arbitrarily positive integer) |
+| rounds | number of maximum communication rounds | default: 50 |
+| batch-size | input batch size for training | default: 64 |
+| lr | learning rate | default: 0.005 |
+| weight_decay | L2 regularizaiton strength | default: 1e-5 |
+| epochs | number of local epochs | default: 10 |
+| output_dir | output directory path | default: ../output |
+
 ## Results
 We have constructed several models:
 | Models | CT(BS) | CT(1F) | CT(2F) | Tumor markers | RECIST | Clinical info. | Descriptions |
